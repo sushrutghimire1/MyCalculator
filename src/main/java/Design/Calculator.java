@@ -49,33 +49,33 @@ public class Calculator {
     public Calculator()
     {
         //Action Listeners for all ten buttons
-        buttonOneAction(buttonOne);
-        buttonOneAction(buttonTwo);
-        buttonOneAction(buttonThree);
-        buttonOneAction(buttonFour);
-        buttonOneAction(buttonFive);
-        buttonOneAction(buttonSix);
-        buttonOneAction(buttonSeven);
-        buttonOneAction(buttonEight);
-        buttonOneAction(buttonNine);
-        buttonOneAction(buttonZero);
+        normalButtonAction(buttonOne);
+        normalButtonAction(buttonTwo);
+        normalButtonAction(buttonThree);
+        normalButtonAction(buttonFour);
+        normalButtonAction(buttonFive);
+        normalButtonAction(buttonSix);
+        normalButtonAction(buttonSeven);
+        normalButtonAction(buttonEight);
+        normalButtonAction(buttonNine);
+        normalButtonAction(buttonZero);
 
         //Action Listeners for 4 basic operators
         buttonAddAction();
         buttonSubtractAction();
-        buttonMultiplyAction(buttonMultiply, '*');
-        buttonMultiplyAction(buttonDivide, '/');
+        divideMultiplyAction(buttonMultiply, '*');
+        divideMultiplyAction(buttonDivide, '/');
 
         //Equals(=) Action Listener
         buttonEqualsAction();
         //Dot Action Listener
-        buttonOneAction(buttonDot);
+        normalButtonAction(buttonDot);
         //Clear Action Listener
-        buttonClearAction(buttonClear, "");
+        buttonPrintAction(buttonClear, "");
 
         //Scientific Mathematical Operation Listener
         buttonSqrtAction(buttonSQRT);
-        buttonClearAction(buttonPI, Double.toString(3.141592));
+        buttonPrintAction(buttonPI, Double.toString(3.141592));
         buttonSquareAction();
         buttonSinAction();
         buttonCosAction(buttonCos);
@@ -86,7 +86,7 @@ public class Calculator {
         //Memory listener
         buttonMcAction();
         buttonMrAction();
-        buttonMplusAction();
+        buttonMPlusAction();
     }
 
     //Initialising the Frame
@@ -98,7 +98,7 @@ public class Calculator {
         frame.setVisible(true);
     }
 
-    private void buttonMplusAction() {
+    private void buttonMPlusAction() {
         buttonMPlus.addActionListener(e -> total=Double.parseDouble(TextField.getText()));
     }
 
@@ -174,7 +174,7 @@ public class Calculator {
         });
     }
 
-    private void buttonClearAction(JButton buttonClear, String s) {
+    private void buttonPrintAction(JButton buttonClear, String s) {
         buttonClear.addActionListener(e -> TextField.setText(s));
     }
 
@@ -209,7 +209,7 @@ public class Calculator {
         });
     }
 
-    private void buttonMultiplyAction(JButton buttonMultiply, char c) {
+    private void divideMultiplyAction(JButton buttonMultiply, char c) {
         buttonMultiply.addActionListener(e -> {
             math_operator = c;
             total = Double.parseDouble(TextField.getText());
@@ -233,7 +233,7 @@ public class Calculator {
         });
     }
 
-    private void buttonOneAction(JButton buttonOne) {
+    private void normalButtonAction(JButton buttonOne) {
         buttonOne.addActionListener(e -> {
 
             String addText = TextField.getText() + buttonOne.getText();
